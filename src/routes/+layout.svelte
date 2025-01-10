@@ -16,5 +16,3 @@
         </div>
     </footer>
 </div>
-
-export const prerender = true;
