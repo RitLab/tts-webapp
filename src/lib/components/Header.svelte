@@ -5,7 +5,7 @@
 <header class="navbar bg-base-100 shadow-lg">
     <div class="navbar-start">
         <div class="flex items-center">
-            <img src="/RIT.png" alt="Company Logo" class="w-12 h-10 mr-3" />
+            <img src="/RIT.png" alt="RITLAB Logo" class="w-12 h-10 mr-3" />
             <span class="text-xl font-bold">Text to Speech</span>
         </div>
     </div>
