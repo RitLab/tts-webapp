@@ -52,12 +52,12 @@
 </svelte:head>
 
 <div class="max-w-2xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6 text-center">Text to Speech Converter</h1>
-    <div class="card bg-base-100 shadow-xl">
+    <h1 class="text-3xl font-bold mb-6 text-center text-black">Text to Speech Converter</h1>
+    <div class="card bg-white bg-opacity-90 shadow-xl">
         <div class="card-body">
             <div class="form-control mb-4">
                 <label for="language-select" class="label">
-                    <span class="label-text">Select Language</span>
+                    <span class="label-text text-black">Select Language</span>
                 </label>
                 <select
                         id="language-select"
@@ -72,7 +72,7 @@
 
             <div class="form-control mb-4">
                 <label for="text-input" class="label">
-                    <span class="label-text">Enter text to convert to speech</span>
+                    <span class="label-text text-black">Enter text to convert to speech</span>
                 </label>
                 <textarea
                         id="text-input"
@@ -82,7 +82,7 @@
                         class="textarea textarea-bordered h-32"
                 ></textarea>
                 <label class="label">
-                    <span class="label-text-alt">{remainingChars} characters remaining</span>
+                    <span class="label-text-alt text-black">{remainingChars} characters remaining</span>
                 </label>
             </div>
 
