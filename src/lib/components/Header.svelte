@@ -12,6 +12,7 @@
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
             <li><a href="/" class="btn btn-ghost" class:btn-active={page.url.pathname === '/'}>Home</a></li>
+            <li><a href="/arrange-audio" class="btn btn-ghost" class:btn-active={page.url.pathname === '/arrange-audio'}>Arrange Audio</a></li>
             <li><a href="/about" class="btn btn-ghost" class:btn-active={page.url.pathname === '/about'}>About</a></li>
             <li><a href="/contact" class="btn btn-ghost" class:btn-active={page.url.pathname === '/contact'}>Contact</a></li>
         </ul>
@@ -23,6 +24,7 @@
             </label>
             <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <li><a href="/" class:active={page.url.pathname === '/'}>Home</a></li>
+                <li><a href="/arrange-audio" class:active={page.url.pathname === '/arrange-audio'}>Arrange Audio</a></li>
                 <li><a href="/about" class:active={page.url.pathname === '/about'}>About</a></li>
                 <li><a href="/contact" class:active={page.url.pathname === '/contact'}>Contact</a></li>
             </ul>

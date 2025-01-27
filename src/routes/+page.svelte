@@ -1,4 +1,7 @@
 <script>
+    import { PUBLIC_API_BASE_URL } from '$env/static/public';
+    import {createTTSFile} from "../repositories/tts.js";
+
     let text = '';
     let audioUrl = '';
     let isLoading = false;
@@ -18,32 +21,14 @@
         error = '';
         audioUrl = '';
 
-        try {
-            const myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
+        createTTSFile(selectedLanguage, text, (err) => {
+            error = err
+        }, (result) => {
+            console.log(result);
+            audioUrl = result.data.url;
+        });
 
-            const raw = JSON.stringify({
-                "text": text,
-                "lang": selectedLanguage,
-            });
-            // Simulating an API call that returns an audio URL
-            const response = await fetch(`https://ritlab.biz.id/api/tts`, {
-                method: 'POST',
-                body: raw,
-                headers: myHeaders,
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to convert text to speech');
-            }
-
-            const data = await response.json();
-            audioUrl = data.data.Url;
-        } catch (err) {
-            console.error(err);
-        } finally {
-            isLoading = false;
-        }
+        isLoading = false;
     }
 </script>
 
