@@ -2,7 +2,17 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.svelte-kit" />
+      <excludeFolder url="file://$MODULE_DIR$/src/repositories/clients/support/.openapi-generator" />
+      <excludeFolder url="file://$MODULE_DIR$/src/repositories/clients/support/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/src/repositories/clients/support/test" />
+      <excludeFolder url="file://$MODULE_DIR$/src/repositories/clients/tts/.openapi-generator" />
+      <excludeFolder url="file://$MODULE_DIR$/src/repositories/clients/tts/docs" />
+      <excludeFolder url="file://$MODULE_DIR$/src/repositories/clients/tts/test" />
+      <excludeFolder url="file://$MODULE_DIR$/src/sdk/clients/support" />
+      <excludeFolder url="file://$MODULE_DIR$/src/sdk/clients/tts" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

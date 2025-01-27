@@ -1,6 +1,6 @@
 import {PUBLIC_API_BASE_URL} from "$env/static/public";
-import ApiClient from "../api/clients/tts/src/ApiClient.js";
-import {DefaultApi} from "../api/clients/tts/src/index.js";
+import ApiClient from "/clients/tts/src/ApiClient.js";
+import {DefaultApi} from "/clients/tts/src/index.js";
 
 export let ttsClient = new ApiClient();
 ttsClient.basePath = PUBLIC_API_BASE_URL;

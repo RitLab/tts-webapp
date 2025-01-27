@@ -1,0 +1,189 @@
+openapi: "3.0.3"
+
+info:
+  version: 1.0.0
+  title: Text-to-Speech API
+  description: A simple API for converting text to speech.
+  contact:
+    name: Ritlabs
+    email: ritlabs1404@gmail.com
+
+servers:
+  - url: https://{hostname}
+    variables:
+      hostname:
+        default: localhost:7075
+
+paths:
+  /api/tts:
+    post:
+      summary: Convert text to speech
+      operationId: textToSpeech
+      requestBody:
+        description: Text input for conversion
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TtsRequest'
+      responses:
+        '200':
+          description: File path text to speech response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TtsResponse'
+        '400':
+          description: Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/tts/read:
+    post:
+      summary: Convert text to speech and response with sound
+      operationId: readTextToSpeech
+      requestBody:
+        description: Text input for conversion with sound
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TtsRequest'
+      responses:
+        '200':
+          description: File path text to speech response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        '400':
+          description: Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/tts/join:
+    post:
+      summary: Join mp3 file into one file
+      operationId: joinMP3Files
+      requestBody:
+        description: Join mp3 file multipart
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/JoinMP3Files'
+            encoding:
+              files:
+                contentType: audio/mpeg
+      responses:
+        '201':
+          description: Success Message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TtsResponse'
+        '400':
+          description: Invalid Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    TtsRequest:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          type: string
+          example: "Hello World!"
+        lang:
+          type: string
+          example: "id"
+          description: Language code for the speech (e.g., "en" for English, "id" for Indonesian).
+          default: "id"
+
+    TtsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            url:
+              type: string
+              example: "https://link.to.sound"
+
+    JoinMP3Files:
+      type: object
+      required:
+        - files
+      properties:
+        files:
+          type: array
+          items:
+            format: binary
+            type: string
+
+    SupportRequest:
+      type: object
+      required:
+        - name
+        - email
+        - message
+      properties:
+        name:
+          type: string
+          example: "User Name"
+        email:
+          type: string
+          example: "example@test.com"
+        message:
+          type: string
+          example: "This is message!"
+          description: Input message for support support
+
+    Success:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "success!"
+
+    Error:
+      type: object
+      required:
+        - slug
+        - message
+      properties:
+        slug:
+          type: string
+          example: "bad-request"
+        message:
+          type: string
+          example: "unexpected error"
