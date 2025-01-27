@@ -17,6 +17,7 @@
 		"@tailwindcss/typography": "^0.5.15",
 		"autoprefixer": "^10.4.20",
 		"daisyui": "^4.12.23",
+		"superagent": "^10.1.1",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"svelte-dnd-action": "^0.9.54",
