@@ -15,7 +15,6 @@
 import ApiClient from './ApiClient';
 import Error from './model/Error';
 import Success from './model/Success';
-import SupportRequest from './model/SupportRequest';
 import TtsRequest from './model/TtsRequest';
 import TtsResponse from './model/TtsResponse';
 import TtsResponseData from './model/TtsResponseData';
@@ -71,12 +70,6 @@ export {
      * @property {module:model/Success}
      */
     Success,
-
-    /**
-     * The SupportRequest model constructor.
-     * @property {module:model/SupportRequest}
-     */
-    SupportRequest,
 
     /**
      * The TtsRequest model constructor.

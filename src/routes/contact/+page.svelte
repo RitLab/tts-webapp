@@ -21,18 +21,22 @@
         // For this example, we'll just log it and show a success message
         console.log('Form submitted:', { name, email, message });
 
-        insertSupportData(name, email, message, (err) => {
-            formError = err;
-            isLoading = false;
-        },() =>{
-            isLoading = false;
+        withTimeout(() => {
+            insertSupportData(name, email, message, (err) => {
+                formError = err;
+                isLoading = false;
+            },() =>{
+                isLoading = false;
 
-            // Reset form fields
-            name = '';
-            email = '';
-            message = '';
-            formSubmitted = true;
-        });
+                // Reset form fields
+                name = '';
+                email = '';
+                message = '';
+                formSubmitted = true;
+            })
+        }, 5000)
+            .then(result => {console.log("API success: " + result)})
+            .catch(e => {console.error(e)})
     }
 </script>
 

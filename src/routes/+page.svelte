@@ -1,5 +1,4 @@
 <script>
-    import { PUBLIC_API_BASE_URL } from '$env/static/public';
     import {createTTSFile} from "../repositories/tts.js";
 
     let text = '';
@@ -21,12 +20,16 @@
         error = '';
         audioUrl = '';
 
-        createTTSFile(selectedLanguage, text, (err) => {
-            error = err
-        }, (result) => {
-            console.log(result);
-            audioUrl = result.data.url;
-        });
+        withTimeout(() => {
+            createTTSFile(selectedLanguage, text, (err) => {
+                error = err
+            }, (result) => {
+                console.log(result);
+                audioUrl = result.data.url;
+            })
+        }, 5000)
+            .then((result) => {console.log("API success: " + result)})
+            .catch((err) => {console.log("API error: " + err)})
 
         isLoading = false;
     }

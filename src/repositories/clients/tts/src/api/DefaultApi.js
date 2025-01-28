@@ -80,6 +80,48 @@ export default class DefaultApi {
     }
 
     /**
+     * Callback function to receive the result of the joinPdfFiles operation.
+     * @callback module:api/DefaultApi~joinPdfFilesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TtsResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Join pdf file into one file
+     * @param {Array.<File>} files 
+     * @param {module:api/DefaultApi~joinPdfFilesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TtsResponse}
+     */
+    joinPdfFiles(files, callback) {
+      let postBody = null;
+      // verify the required parameter 'files' is set
+      if (files === undefined || files === null) {
+        throw new Error("Missing the required parameter 'files' when calling joinPdfFiles");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+        'files': this.apiClient.buildCollectionParam(files, 'passthrough')
+      };
+
+      let authNames = [];
+      let contentTypes = ['multipart/form-data'];
+      let accepts = ['application/json'];
+      let returnType = TtsResponse;
+      return this.apiClient.callApi(
+        '/api/tts/join-pdf', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the readTextToSpeech operation.
      * @callback module:api/DefaultApi~readTextToSpeechCallback
      * @param {String} error Error message, if any.

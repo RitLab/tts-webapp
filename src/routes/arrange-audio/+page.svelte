@@ -1,9 +1,8 @@
 <script>
-    import { PUBLIC_API_BASE_URL } from '$env/static/public';
-
-    import { flip } from 'svelte/animate';
+   import { flip } from 'svelte/animate';
     import { dndzone } from 'svelte-dnd-action';
     import {JoinMp3Files} from "../../repositories/tts.js";
+    import {withTimeout} from "$lib/utils/utils.js";
 
     let files = [];
     let dragOver = false;
@@ -58,18 +57,22 @@
             dataFiles.push(file.file);
         });
 
-        JoinMp3Files(
-            dataFiles,
-            (error) => {
-                console.error('Upload error:', error);
-                uploadStatus = 'Error uploading files. Please try again.';
-            },
-            (result) => {
-                uploadStatus = 'Files uploaded successfully!';
-                console.log('Upload result:', result);
-                combinedAudioUrl = result.data.url;
-            }
-        );
+        withTimeout(() => {
+            JoinMp3Files(
+                dataFiles,
+                (error) => {
+                    console.error('Upload error:', error);
+                    uploadStatus = 'Error uploading files. Please try again.';
+                },
+                (result) => {
+                    uploadStatus = 'Files uploaded successfully!';
+                    console.log('Upload result:', result);
+                    combinedAudioUrl = result.data.url;
+                }
+            )
+        }, 5000)
+            .then(result => console.log("Upload successfully: " + result))
+            .catch(error => console.error("Upload error: " + error));
         isUploading = false;
     }
 
