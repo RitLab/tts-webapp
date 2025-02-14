@@ -24,5 +24,7 @@ vite.config.ts.timestamp-*
 
 /src/repositories/clients/support/*
 /src/repositories/clients/tts/*
+/src/repositories/clients/pdf/*
 !/src/repositories/clients/support/src/
 !/src/repositories/clients/tts/src/
+!/src/repositories/clients/pdf/src/

@@ -29,13 +29,3 @@ export function JoinMp3Files(files, errorCallback, callback) {
         }
     })
 }
-
-export function JoinPdfFiles(files, errorCallback, callback) {
-    ttsApi.joinPdfFiles(files, (err, result) => {
-        if (err) {
-            errorCallback(err);
-        } else {
-            callback(result);
-        }
-    })
-}

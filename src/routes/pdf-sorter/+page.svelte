@@ -2,7 +2,7 @@
     import {flip} from 'svelte/animate';
     import {dndzone} from 'svelte-dnd-action';
     import {PDFDocument} from 'pdf-lib';
-    import {JoinPdfFiles} from "../../repositories/tts.js";
+    import {JoinPdfFiles} from "../../repositories/pdf.js";
     import {withTimeout} from "$lib/utils/utils.js";
 
     let pdfFiles = [];
@@ -109,7 +109,7 @@
 </svelte:head>
 
 <div class="max-w-4xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6 text-center">PDF Sorter</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center text-black">PDF Sorter</h1>
     <div class="card bg-white bg-opacity-90 shadow-xl">
         <div class="card-body">
             <div

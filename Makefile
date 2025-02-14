@@ -5,3 +5,4 @@ openapi: openapi_js
 openapi_js:
 	@./scripts/openapi-js.sh tts
 	@./scripts/openapi-js.sh support
+	@./scripts/openapi-js.sh pdf
