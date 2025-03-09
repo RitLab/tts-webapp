@@ -19,6 +19,7 @@
                     <li><a href="/pdf-sorter" class:active={page.url.pathname === '/pdf-sorter'}>PDF Sorter</a></li>
                     <li><a href="/pdf-signer" class:active={page.url.pathname === '/pdf-signer'}>PDF Signer</a></li>
                     <li><a href="/verify-pdf" class:active={page.url.pathname === '/verify-pdf'}>Verify PDF</a></li>
+                    <li><a href="/pdf-summarizer" class:active={page.url.pathname === '/pdf-summarizer'}>PDF Summarizer</a></li>
                 </ul>
             </li>
             <li><a href="/about" class="btn btn-ghost" class:btn-active={page.url.pathname === '/about'}>About</a></li>
@@ -39,6 +40,7 @@
                         <li><a href="/pdf-sorter" class:active={page.url.pathname === '/pdf-sorter'}>PDF Sorter</a></li>
                         <li><a href="/pdf-signer" class:active={page.url.pathname === '/pdf-signer'}>PDF Signer</a></li>
                         <li><a href="/verify-pdf" class:active={page.url.pathname === '/verify-pdf'}>Verify PDF</a></li>
+                        <li><a href="/pdf-summarizer" class:active={page.url.pathname === '/pdf-summarizer'}>PDF Summarizer</a></li>
                     </ul>
                 </li>
                 <li><a href="/about" class:active={page.url.pathname === '/about'}>About</a></li>

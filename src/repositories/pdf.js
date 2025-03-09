@@ -36,3 +36,13 @@ export function VerifyPdfFile(file, key,errorCallback, callback) {
         }
     })
 }
+
+export function SummarizePdf(file,errorCallback, callback) {
+    pdfApi.summarizePdf(file,(err, result) => {
+        if (err) {
+            errorCallback(err);
+        } else {
+            callback(result);
+        }
+    })
+}
