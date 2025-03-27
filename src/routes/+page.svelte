@@ -1,5 +1,6 @@
 <script>
     import {createTTSFile} from "../repositories/tts.js";
+    import {withTimeout} from "$lib/utils/utils.js";
 
     let text = '';
     let audioUrl = '';

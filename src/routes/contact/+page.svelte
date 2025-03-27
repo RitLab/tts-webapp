@@ -1,5 +1,6 @@
 <script>
     import {insertSupportData} from "../../repositories/support.js";
+    import {withTimeout} from "$lib/utils/utils.js";
 
     let name = '';
     let email = '';
